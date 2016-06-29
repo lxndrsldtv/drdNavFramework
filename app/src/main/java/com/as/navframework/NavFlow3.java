@@ -103,22 +103,27 @@ public class NavFlow3 implements NavigationFlow {
                 if /* case = first login -> set pin code -> done correctly */ ( _case <= 0.2f ) {
                     navigateToTermAndConditions();
                     currentNode = Nodes.TermAndConditions;
+                    break;
                 }
                 if /* case = first login -> set pin code -> done incorrectly */ ( 0.2f <  _case && _case <= 0.4f ) {
                     //navigateToPinCode();
                     //currentNode = Nodes.PinCode;
+                    break;
                 }
                 if /* case = sequential login -> check pin code -> pin correct */ ( 0.4f <  _case && _case <= 0.6f ) {
                     navigateToHome();
                     currentNode = Nodes.Home;
+                    break;
                 }
                 if /* case = sequential login -> check pin code -> pin incorrect */ ( 0.6f <  _case && _case <= 0.8f ) {
                     //navigateToPinCode();
                     //currentNode = Nodes.PinCode;
+                    break;
                 }
                 if /* case = sequential login -> check pin code -> pin incorrect 3 times*/ ( 0.8f <  _case && _case <= 1.0f ) {
                     navigateToLogin();
                     currentNode = Nodes.Login;
+                    break;
                 }
                 break;
 
