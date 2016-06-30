@@ -34,13 +34,11 @@ public class LoginActivity extends AppCompatActivity implements Transition {
 
     private void doSomethingAndNavigation() {
         ((Navigator)getApplication()).getFlow().navigateNext();
-        finish();
     }
 
     @Override
     public void onBackPressed() {
         ((Navigator)getApplication()).getFlow().navigatePrev();
-        finish();
     }
 
     private Class transitionDestination;

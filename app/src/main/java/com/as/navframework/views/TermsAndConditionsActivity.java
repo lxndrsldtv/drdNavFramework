@@ -32,13 +32,11 @@ public class TermsAndConditionsActivity extends AppCompatActivity implements Tra
 
     private void doSomethingAndNavigation() {
         ((Navigator)getApplication()).getFlow().navigateNext();
-        finish();
     }
 
     @Override
     public void onBackPressed() {
         ((Navigator)getApplication()).getFlow().navigatePrev();
-        finish();
     }
 
     private Class transitionDestination;
