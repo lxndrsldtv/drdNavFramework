@@ -20,6 +20,9 @@ public class NavApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        homePresenter = new HomePresenter(null);
+
         flow1 = new NavFlow1(this);
         flow2 = new NavFlow2(this);
         flow3 = new NavFlow3();
@@ -38,10 +41,11 @@ public class NavApp extends Application {
         return flow3;
     }
 
+    public HomePresenter getHomePresenter() {
+        return homePresenter;
+    }
 
-
-
-//    public void navigateToLoginActivityStep1() {
+    //    public void navigateToLoginActivityStep1() {
 //        startActivity(new Intent(getApplicationContext(), HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 //    }
 //

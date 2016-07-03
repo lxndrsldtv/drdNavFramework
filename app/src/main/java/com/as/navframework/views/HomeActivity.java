@@ -15,16 +15,21 @@ import com.as.navframework.NavigationPosition;
 import com.as.navframework.R;
 import com.as.navframework.Transfer;
 import com.as.navframework.Transition;
+import com.as.navframework.presenters.IActionHandler;
+import com.as.navframework.presenters.IHomePresenter;
 
-public class HomeActivity extends AppCompatActivity implements NavigationPosition {
+public class HomeActivity extends AppCompatActivity implements IHomeView, NavigationPosition, NavigationContext {
+
+    private IHomePresenter homePresenter;
+    private IActionHandler actionHandler;
+    private Button mSignInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_tst);
 
-        Button mSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mSignInButton.setText("Go to login");
+         mSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,7 +37,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationPositio
             }
         });
 
-        ((NavApp)getApplication()).getFlow().setTransitionProvider(this);
+        homePresenter = ((NavApp)getApplication()).getHomePresenter();
+        homePresenter.setView(this);
 
         Log.v("NF",
               "HomeActivity.onCreate() time: " + System.currentTimeMillis() + " " +
@@ -41,12 +47,27 @@ public class HomeActivity extends AppCompatActivity implements NavigationPositio
     }
 
     private void doSomethingAndNavigation() {
-        ((NavApp)getApplication()).getFlow().navigateNext();
+        actionHandler.handle((String)mSignInButton.getText());
     }
 
     @Override
     public void onBackPressed() {
-        ((NavApp)getApplication()).getFlow().navigatePrev();
+        actionHandler.handle("GoBack");
+    }
+
+    @Override
+    public void setActionName(String actionName) {
+        mSignInButton.setText("Go to login");
+    }
+
+    @Override
+    public void setActionHandler(IActionHandler actionHandler) {
+        this.actionHandler = actionHandler;
+    }
+
+    @Override
+    public NavigationContext perform(Transfer transfer) {
+        return null;
     }
 
 //    private Class transitionDestination;

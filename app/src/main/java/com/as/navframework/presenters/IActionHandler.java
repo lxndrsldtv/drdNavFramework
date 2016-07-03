@@ -5,5 +5,5 @@ package com.as.navframework.presenters;
  */
 
 public interface IActionHandler {
-    void handle();
+    void handle(String actionName);
 }

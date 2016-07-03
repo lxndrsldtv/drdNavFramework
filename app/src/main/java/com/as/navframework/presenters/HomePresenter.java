@@ -1,6 +1,7 @@
 package com.as.navframework.presenters;
 
 import android.content.Intent;
+import android.util.Log;
 
 import com.as.navframework.INavigator;
 import com.as.navframework.NavApp;
@@ -20,8 +21,8 @@ public class HomePresenter implements IHomePresenter, IActionHandler{
     }
 
     @Override
-    public void handle() {
-        navigator.
+    public void handle(String actionName) {
+        Log.v("NF", "handling action " + actionName);
     }
 
     @Override
