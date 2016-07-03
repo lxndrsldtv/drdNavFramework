@@ -1,24 +1,33 @@
 package com.as.navframework.presenters;
 
-import android.app.Application;
 import android.content.Intent;
 
-import com.as.navframework.Navigator;
+import com.as.navframework.INavigator;
+import com.as.navframework.NavApp;
 import com.as.navframework.views.HomeActivity;
+import com.as.navframework.views.IHomeView;
 
 /**
  * Created by alex.soldatov on 24/06/16.
  */
-public class HomePresenter {
+public class HomePresenter implements IHomePresenter, IActionHandler{
 
-    Navigator transitionProvider;
+    private IHomeView homeView;
+    private INavigator navigator;
 
-    public HomePresenter(Navigator transitionProvier) {
-        this.transitionProvider = transitionProvier;
+    public HomePresenter(INavigator navigator) {
+        this.navigator = navigator;
     }
 
-    public void startView() {
-        transitionProvider.startActivity(new Intent(transitionProvider.getApplicationContext(), HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    @Override
+    public void handle() {
+        navigator.
     }
 
+    @Override
+    public void setView(IHomeView homeView) {
+        this.homeView = homeView;
+        this.homeView.setActionName("Go to Login");
+        this.homeView.setActionHandler(this);
+    }
 }

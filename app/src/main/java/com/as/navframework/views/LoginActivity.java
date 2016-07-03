@@ -6,9 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TableRow;
 
-import com.as.navframework.Navigator;
+import com.as.navframework.NavApp;
 import com.as.navframework.R;
 import com.as.navframework.Transition;
 
@@ -28,17 +27,17 @@ public class LoginActivity extends AppCompatActivity implements Transition {
             }
         });
 
-        ((Navigator)getApplication()).getFlow().setTransitionProvider(this);
+        ((NavApp)getApplication()).getFlow().setTransitionProvider(this);
 
     }
 
     private void doSomethingAndNavigation() {
-        ((Navigator)getApplication()).getFlow().navigateNext();
+        ((NavApp)getApplication()).getFlow().navigateNext();
     }
 
     @Override
     public void onBackPressed() {
-        ((Navigator)getApplication()).getFlow().navigatePrev();
+        ((NavApp)getApplication()).getFlow().navigatePrev();
     }
 
     private Class transitionDestination;

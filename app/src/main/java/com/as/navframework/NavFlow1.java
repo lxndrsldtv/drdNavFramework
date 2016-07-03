@@ -18,10 +18,10 @@ public class NavFlow1 implements NavigationFlow {
         LoginActivityStep3b
     }
 
-    private Navigator transitionProvider;
+    private NavApp transitionProvider;
     private Nodes currentNode;
 
-    public NavFlow1(Navigator transitionProvider) {
+    public NavFlow1(NavApp transitionProvider) {
         this.transitionProvider = transitionProvider;
         currentNode = Nodes.LoginActivityStep1;
     }

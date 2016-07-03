@@ -9,11 +9,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.as.navframework.Navigator;
+import com.as.navframework.NavApp;
+import com.as.navframework.NavigationContext;
+import com.as.navframework.NavigationPosition;
 import com.as.navframework.R;
+import com.as.navframework.Transfer;
 import com.as.navframework.Transition;
 
-public class HomeActivity extends AppCompatActivity implements Transition {
+public class HomeActivity extends AppCompatActivity implements NavigationPosition {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class HomeActivity extends AppCompatActivity implements Transition {
             }
         });
 
-        ((Navigator)getApplication()).getFlow().setTransitionProvider(this);
+        ((NavApp)getApplication()).getFlow().setTransitionProvider(this);
 
         Log.v("NF",
               "HomeActivity.onCreate() time: " + System.currentTimeMillis() + " " +
@@ -38,25 +41,25 @@ public class HomeActivity extends AppCompatActivity implements Transition {
     }
 
     private void doSomethingAndNavigation() {
-        ((Navigator)getApplication()).getFlow().navigateNext();
+        ((NavApp)getApplication()).getFlow().navigateNext();
     }
 
     @Override
     public void onBackPressed() {
-        ((Navigator)getApplication()).getFlow().navigatePrev();
+        ((NavApp)getApplication()).getFlow().navigatePrev();
     }
 
-    private Class transitionDestination;
+//    private Class transitionDestination;
 
-    @Override
-    public void setDestination(Class destination) {
-        transitionDestination = destination;
-    }
+//    @Override
+//    public void setDestination(Class destination) {
+//        transitionDestination = destination;
+//    }
 
-    @Override
-    public void perform() {
-        startActivity(new Intent(this, transitionDestination));
-    }
+//    @Override
+//    public NavigationContext perform(Transfer transfer) {
+//        startActivity(new Intent(this, transitionDestination));
+//    }
 
 
 }

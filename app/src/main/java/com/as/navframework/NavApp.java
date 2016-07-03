@@ -9,7 +9,7 @@ import com.as.navframework.presenters.HomePresenter;
 /**
  * Created by alex.soldatov on 23/06/16.
  */
-public class Navigator extends Application {
+public class NavApp extends Application {
 
     private NavigationFlow flow1;
     private NavigationFlow flow2;
@@ -25,7 +25,7 @@ public class Navigator extends Application {
         flow3 = new NavFlow3();
 
         Log.v("NF",
-              "Navigator.onCreate().exit time: " + System.currentTimeMillis() + " " +
+              "NavApp.onCreate().exit time: " + System.currentTimeMillis() + " " +
               "Thread:" + Thread.currentThread().getId());
 
         //homePresenter = new HomePresenter(this);
