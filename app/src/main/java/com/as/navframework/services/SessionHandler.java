@@ -12,13 +12,24 @@ import java.util.logging.Logger;
 
 public class SessionHandler {
     /**
-     * Session handling
-     Client requires new login (kills the session) whenever server responds with a login request (session expired in server).
+     Session handling
+
+     Client requires new login (kills the session)
+     whenever server responds with a login request (session expired in server).
+
      Client kills the session when client is killed
+
      Client kills the session when user performs logout in client
-     Client has ~1 min timeout in suspend (set shorter than server session length). After timeout, client kills the session automatically when resumed (doesn't wait session status from server).
+
+     Client has ~1 min timeout in suspend (set shorter than server session length).
+     After timeout, client kills the session automatically when resumed
+     (doesn't wait session status from server).
+
      Server refreshes session whenever a client action is performed
-     Client refreshes session when needed (requires specification, but some kind of keepalive call needed when user is active, but user actions don't result in a server call).
+
+     Client refreshes session when needed
+     (requires specification, but some kind of keepalive call needed when user is active,
+     but user actions don't result in a server call).
      */
 
     private long timeout_in_milliseconds = 60000; //default inactivity timeout value (1 minute)
