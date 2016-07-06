@@ -1,5 +1,6 @@
 package com.as.navframework;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.util.Log;
@@ -16,6 +17,8 @@ public class NavApp extends Application {
     private NavigationFlow flow3;
 
     private HomePresenter homePresenter;
+
+    private Activity currentActivity;
 
     @Override
     public void onCreate() {
@@ -43,6 +46,14 @@ public class NavApp extends Application {
 
     public HomePresenter getHomePresenter() {
         return homePresenter;
+    }
+
+    public void setCurrentActivity (Activity activity) {
+        currentActivity = activity;
+    }
+
+    public Activity getCurrentActivity () {
+        return currentActivity;
     }
 
     //    public void navigateToLoginActivityStep1() {

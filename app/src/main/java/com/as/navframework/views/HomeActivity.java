@@ -29,7 +29,9 @@ public class HomeActivity extends AppCompatActivity implements IHomeView, Naviga
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_tst);
 
-         mSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        ((NavApp)getApplication()).setCurrentActivity(this);
+
+        mSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
