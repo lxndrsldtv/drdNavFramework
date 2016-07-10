@@ -1,4 +1,4 @@
-package com.as.navframework.Entities;
+package com.as.navframework.entities;
 
 /**
  * Created by lxndr.soldatov on 06/07/16.

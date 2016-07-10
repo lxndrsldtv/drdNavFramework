@@ -1,6 +1,6 @@
 package com.as.navframework.views;
 
-import com.as.navframework.Entities.AuthenticationCredentials;
+import com.as.navframework.entities.AuthenticationCredentials;
 
 /**
  * Created by lxndr.soldatov on 06/07/16.

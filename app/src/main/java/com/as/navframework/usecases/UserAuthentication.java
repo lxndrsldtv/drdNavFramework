@@ -1,8 +1,8 @@
 package com.as.navframework.usecases;
 
-import com.as.navframework.Entities.AuthenticationCredentials;
-import com.as.navframework.Services.AuthenticationProvider;
-import com.as.navframework.Services.AuthenticationService;
+import com.as.navframework.entities.AuthenticationCredentials;
+import com.as.navframework.services.AuthenticationProvider;
+import com.as.navframework.services.AuthenticationService;
 import com.as.navframework.views.IUserResponseHandler;
 import com.as.navframework.views.UserInterface;
 

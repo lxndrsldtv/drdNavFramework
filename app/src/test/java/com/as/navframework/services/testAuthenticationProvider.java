@@ -1,12 +1,12 @@
-package com.as.navframework.Services;
+package com.as.navframework.services;
 
-import com.as.navframework.Entities.AuthenticationCredentials;
+import com.as.navframework.entities.AuthenticationCredentials;
 
 /**
  * Created by lxndr.soldatov on 06/07/16.
  */
 
-public class AuthenticationProvider {
+public class testAuthenticationProvider implements IAuthenticationProvider {
 
     public String authenticate (AuthenticationCredentials authenticationCredentials) {
         if ("login" == authenticationCredentials.login &&

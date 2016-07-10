@@ -1,13 +1,14 @@
-package com.as.navframework.Services;
+package com.as.navframework.services;
 
 /**
  * Created by lxndr.soldatov on 06/07/16.
  */
 
-public class AuthenticationService {
+public class testAuthenticationService implements IAuthenticationService {
 
     private String token;
 
+    @Override
     public boolean has_valid_token () {
         if ("token" == token)
             return true;
@@ -15,6 +16,7 @@ public class AuthenticationService {
             return false;
     }
 
+    @Override
     public boolean has_invalid_token () {
         return !has_valid_token ();
     }
