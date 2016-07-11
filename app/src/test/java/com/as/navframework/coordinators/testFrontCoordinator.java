@@ -13,7 +13,7 @@ public class testFrontCoordinator implements IFrontCoordinator {
     @Override
     public void start() {
         System.out.println("testFrontCoordinator started");
-        System.out.println("testFrontCoordinator doind front coordination");
+        System.out.println("testFrontCoordinator doing front coordination");
         System.out.println("testFrontCoordinator start finishing");
         callbackHandler.onFinish(this);
     }

@@ -1,8 +1,8 @@
 package com.as.navframework.usecases;
 
 import com.as.navframework.entities.AuthenticationCredentials;
-import com.as.navframework.services.AuthenticationProvider;
-import com.as.navframework.services.AuthenticationService;
+import com.as.navframework.services.IAuthenticationProvider;
+import com.as.navframework.services.IAuthenticationService;
 import com.as.navframework.views.IUserResponseHandler;
 import com.as.navframework.views.UserInterface;
 
@@ -13,13 +13,13 @@ import com.as.navframework.views.UserInterface;
 public class UserAuthentication implements IUserResponseHandler {
 
     private UserInterface _UserInterface;
-    private AuthenticationService _AuthenticationService;
-    private AuthenticationProvider _AuthenticationProvider;
+    private IAuthenticationService _AuthenticationService;
+    private IAuthenticationProvider _AuthenticationProvider;
     private AuthenticationCredentials _AuthenticationCredentials;
 
     public UserAuthentication (UserInterface userInterface,
-                               AuthenticationService authenticationService,
-                               AuthenticationProvider authenticationProvider) {
+                               IAuthenticationService authenticationService,
+                               IAuthenticationProvider authenticationProvider) {
 
         _UserInterface = userInterface;
         _AuthenticationService = authenticationService;
@@ -52,7 +52,7 @@ public class UserAuthentication implements IUserResponseHandler {
             _UserInterface.ask_user_for_authentication_credentials(this);
 
         String token = _AuthenticationProvider.authenticate(_AuthenticationCredentials);
-        _AuthenticationService.setToken(token);
+//        _AuthenticationService.setToken(token);
     }
 
 //
